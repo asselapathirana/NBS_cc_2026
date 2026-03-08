@@ -130,9 +130,9 @@ You must choose:
 
 Rainfall is derived from the **IDF relationships** below.
 
-```math
+\[
 Y = a X^{b}
-```
+\]
 Where
 
 * **X** = duration (hours)

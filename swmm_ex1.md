@@ -1,9 +1,4 @@
-Below is a **single clean GitHub-ready Markdown handout** with the corrected rainfall specification (**2-hour storm, 15-minute interval, 8 blocks**) and everything integrated.
-You can drop this directly into a `README.md` on GitHub and link it from Moodle.
-
-
-
-# SWMM Exercise
+# SWMM Exercise (2026 class)
 
 ## Build a Stormwater Model from Scratch
 
@@ -19,7 +14,7 @@ The aim is **not** to produce a perfect design. The aim is to understand:
 
 Many parameters are intentionally not specified. You must make **reasonable engineering assumptions** and clearly document them.
 
----
+
 
 # Learning outcomes
 
@@ -32,7 +27,7 @@ After completing this exercise you should be able to:
 * correctly represent **catchment connectivity**
 * run the model and assess whether the results are **physically reasonable**
 
----
+
 
 # 1. Drainage system description
 
@@ -74,7 +69,7 @@ flowchart LR
     C3 --> J4((J4 Outlet))
 ```
 
----
+
 
 # 2. Subcatchment properties
 
@@ -101,7 +96,7 @@ Suggested starting values:
 
 These are **not mandatory**. They are starting assumptions.
 
----
+
 
 # 3. Junctions and outlet
 
@@ -114,7 +109,7 @@ These are **not mandatory**. They are starting assumptions.
 
 Use a **free outfall** boundary condition at J4.
 
----
+
 
 # 4. Conduit data
 
@@ -124,27 +119,20 @@ Use a **free outfall** boundary condition at J4.
 | C2      | J2   | J3 |         75 |
 | C3      | J3   | J4 |        120 |
 
-Assume **circular pipes**.
+Use circular pipes for C1 and C2. Rectangular option channel for C3. Pipes are concrete. Channel sections are Rubble lined on compacted clay. 
 
 You must choose:
 
-* pipe diameters
+* pipe dimensions. 
 * Manning's n for pipes
-
-Suggested starting value:
-
-Manning's n = **0.013** (concrete pipes)
-
----
 
 # 5. Rainfall input
 
 Rainfall is derived from the **IDF relationships** below.
 
-[
+```math
 Y = a X^{b}
-]
-
+```
 Where
 
 * **X** = duration (hours)
@@ -160,37 +148,38 @@ Where
 | 100 year      | Y = 128.74 X⁻⁰·⁶⁸² |
 | 200 year      | Y = 140.09 X⁻⁰·⁶⁷⁹ |
 
----
+
 
 # 6. Design storms
 
-Construct design storms using the **Alternating Block Method**.
+Design storms were constructed using the **Alternating Block Method**.
 
 Storm characteristics:
 
 * **Duration:** 2 hours
 * **Rainfall interval:** 15 minutes
-* **Number of intervals:** 8
 
 ### Rainfall depth per interval
 
 | Time (min) | 2-year | 10-year | 50-year |
 | ---------- | -----: | ------: | ------: |
-| 0–15       |    2.9 |     4.9 |     6.6 |
-| 15–30      |    3.7 |     6.3 |     8.5 |
-| 30–45      |    5.8 |     9.5 |    12.8 |
-| 45–60      |   40.8 |    59.4 |    75.9 |
-| 60–75      |    8.5 |    13.8 |    18.5 |
-| 75–90      |    4.5 |     7.5 |    10.1 |
-| 90–105     |    3.2 |     5.5 |     7.4 |
-| 105–120    |    2.6 |     4.4 |     6.0 |
+| 0       |    2.9 |     4.9 |     6.6 |
+| 15      |    3.7 |     6.3 |     8.5 |
+| 30      |    5.8 |     9.5 |    12.8 |
+| 45      |   40.8 |    59.4 |    75.9 |
+| 60      |    8.5 |    13.8 |    18.5 |
+| 75      |    4.5 |     7.5 |    10.1 |
+| 90     |    3.2 |     5.5 |     7.4 |
+| 105    |    2.6 |     4.4 |     6.0 |
+| 120    |    0.0 |     0.0 |     0.0 |
 
 Units: **mm per 15-minute interval**
 
 ### Total storm depth
 
 | Return period | Total rainfall |
-| ------------- | -------------- | | 2-year        | 71.9 mm        |
+| ------------- | -------------- | 
+| 2-year        | 71.9 mm        |
 | 10-year       | 111.4 mm       |
 | 50-year       | 145.9 mm       |
 
@@ -200,7 +189,7 @@ Units: **mm per 15-minute interval**
 
 Use the **Green–Ampt infiltration method**.
 
-For this exercise assume the soil type is **Loam**.
+For this exercise assume the soil type is Loam.
 
 ### Green–Ampt soil parameters
 
@@ -209,7 +198,7 @@ For this exercise assume the soil type is **Loam**.
 | Sand            |                 120.4 |                49.0 |     0.437 |          0.062 |         0.024 |                    0.375 |
 | Loamy Sand      |                  30.0 |                61.0 |     0.437 |          0.105 |         0.047 |                    0.332 |
 | Sandy Loam      |                  10.9 |               110.0 |     0.453 |          0.190 |         0.085 |                    0.263 |
-| **Loam**        |               **3.3** |            **88.9** | **0.463** |      **0.232** |     **0.116** |                **0.231** |
+| Loam        |               3.3 |            88.9 | 0.463 |      0.232 |     0.116 |                0.231 |
 | Silt Loam       |                   6.6 |               169.9 |     0.501 |          0.284 |         0.135 |                    0.217 |
 | Sandy Clay Loam |                   1.5 |               220.0 |     0.398 |          0.244 |         0.136 |                    0.154 |
 | Clay Loam       |                   1.0 |               210.1 |     0.464 |          0.310 |         0.187 |                    0.154 |
@@ -218,13 +207,6 @@ For this exercise assume the soil type is **Loam**.
 | Silty Clay      |                   0.5 |               290.1 |     0.479 |          0.371 |         0.251 |                    0.108 |
 | Clay            |                   0.3 |               320.0 |     0.475 |          0.378 |         0.265 |                    0.097 |
 
-For the model use:
-
-* **Suction head:** 88.9 mm
-* **Hydraulic conductivity:** 3.3 mm/h
-* **Initial moisture deficit:** 0.231
-
-
 
 # 8. Tasks
 
@@ -232,15 +214,13 @@ For the model use:
 
 Create a SWMM project with:
 
-* 3 subcatchments
-* 4 nodes (including outlet)
-* 3 conduits
-* 1 rain gage
-* rainfall time series
+* subcatchments
+* nodes (including outlet)
+* conduits
+
+
 
 Arrange the network clearly.
-
-
 
 ## Task 2 — Enter rainfall data
 
@@ -249,8 +229,8 @@ Create rainfall time series for:
 * 2-year storm
 * 10-year storm
 * 50-year storm
-
-
+  
+Add a rain gauge. 
 
 ## Task 3 — Enter hydrological parameters
 
@@ -272,17 +252,13 @@ Enter:
 * conduit lengths
 * pipe diameters
 
-Start with reasonable engineering estimates.
-
-
+Use reasonable engineering estimates.
 
 ## Task 5 — Run the model
 
 Run the simulation for each design storm.
 
-Use a simulation period long enough to capture runoff recession
-(e.g. **1 hour simulation**).
-
+Use a simulation period long enough to capture runoff recession. 
 
 
 ## Task 6 — Evaluate the results

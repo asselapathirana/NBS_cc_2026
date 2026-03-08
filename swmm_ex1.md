@@ -131,7 +131,7 @@ You must choose:
 Rainfall is derived from the **IDF relationships** below.
 
 ```math
-Y = a X^{b}$$
+Y = a X^{b}
 ```
 Where
 

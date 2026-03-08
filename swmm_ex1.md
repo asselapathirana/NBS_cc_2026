@@ -1,9 +1,4 @@
-Below is a **single clean GitHub-ready Markdown handout** with the corrected rainfall specification (**2-hour storm, 15-minute interval, 8 blocks**) and everything integrated.
-You can drop this directly into a `README.md` on GitHub and link it from Moodle.
-
-
-
-# SWMM Exercise
+# SWMM Exercise (2026 class)
 
 ## Build a Stormwater Model from Scratch
 
@@ -19,7 +14,7 @@ The aim is **not** to produce a perfect design. The aim is to understand:
 
 Many parameters are intentionally not specified. You must make **reasonable engineering assumptions** and clearly document them.
 
----
+
 
 # Learning outcomes
 
@@ -32,7 +27,7 @@ After completing this exercise you should be able to:
 * correctly represent **catchment connectivity**
 * run the model and assess whether the results are **physically reasonable**
 
----
+
 
 # 1. Drainage system description
 
@@ -74,7 +69,7 @@ flowchart LR
     C3 --> J4((J4 Outlet))
 ```
 
----
+
 
 # 2. Subcatchment properties
 
@@ -101,7 +96,7 @@ Suggested starting values:
 
 These are **not mandatory**. They are starting assumptions.
 
----
+
 
 # 3. Junctions and outlet
 
@@ -114,7 +109,7 @@ These are **not mandatory**. They are starting assumptions.
 
 Use a **free outfall** boundary condition at J4.
 
----
+
 
 # 4. Conduit data
 
@@ -135,7 +130,7 @@ Suggested starting value:
 
 Manning's n = **0.013** (concrete pipes)
 
----
+
 
 # 5. Rainfall input
 
@@ -160,7 +155,7 @@ Where
 | 100 year      | Y = 128.74 X⁻⁰·⁶⁸² |
 | 200 year      | Y = 140.09 X⁻⁰·⁶⁷⁹ |
 
----
+
 
 # 6. Design storms
 

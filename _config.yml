@@ -1,0 +1,6 @@
+title: NBS_cc_2026
+description: Course materials
+markdown: kramdown
+kramdown:
+  input: GFM
+theme: null

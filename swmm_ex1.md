@@ -130,9 +130,9 @@ You must choose:
 
 Rainfall is derived from the **IDF relationships** below.
 
-\[
+$$
 Y = a X^{b}
-\]
+$$
 Where
 
 * **X** = duration (hours)
@@ -319,4 +319,3 @@ Include either:
 2. Why might **J3** be a critical node in this system?
 3. Which parameter is likely to affect runoff more strongly: **imperviousness or pipe roughness**?
 4. What additional data would you need if this were a real design project?
-
